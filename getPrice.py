@@ -75,7 +75,6 @@ def getPrice (commodity):
 
     #Contract expires generally around 20th of month, so if Day Of Month > 20, go to the next months contract! 
     dom = dt.day
-    print('$$$' + dom)
     if(dom > 19): monthRollover = 1
     
     #Date Slicing for correct month contract URL.
@@ -86,7 +85,6 @@ def getPrice (commodity):
     URLmonth = str(futureMonths[month])				#want 1 month advance, but the array is -1, so its +1-1 = month
 
 
-    
     #Build URL for CME Exchange
     #--------------------------
     #https://www.cmegroup.com/CmeWS/mvc/Quotes/FutureContracts/XNYM/G?quoteCodes=CL + MONTHCHAR + FINAL DIGIT OF YEAR
