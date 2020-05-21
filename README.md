@@ -25,11 +25,15 @@ https://github.com/duivesteyn/piOilPriceDisplay
 - user/pass pi:oilpricedisplay
 - apt-get updade && upgrade
 - installed neofetch
-- switched to python3 alias python='/usr/bin/python3'
-
+- switched to python3 alias python='/usr/bin/python3'  and alias pip=pip3
+- curl https://get.pimoroni.com/inky | bash
+ 
 ## Access
 ssh pi@piOilPriceDisplay.local
 
+## Pre-requisites
+- python3
+- curl https://get.pimoroni.com/inky | bash
 
 ## Code Structure 
 boot.py
