@@ -49,9 +49,8 @@ getPrice.py
 1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
 3. crontab -e
 4. add the following lines:
-*/15 * * * * python3 /home/pi/piOilPriceDisplay/updateDisplay.py
-@reboot python3 /home/pi/piOilPriceDisplay/boot.py
-
+*/15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
+@reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
 
 ## User Interface
 No user accessible options, all setup done in python file.
@@ -59,21 +58,22 @@ No user accessible options, all setup done in python file.
 - Main Display 		Main Display updated every 30 seconds
 
 LOADING SCREEN
---------------------------------------------------
-|                                     2020-05-16 |
-|            piOilPriceDisplay v1.0              |
-|                                                |
-|    github.com/duivesteyn/piOilPriceDisplay     |
-|                                                | internet: -> internet: OK (if internet works)		
-|          internet:ok         Data:CME          | Data: -> Data:CME         (when the download reports status 200)
---------------------------------------------------
+
+    --------------------------------------------------
+    |                                     2020-05-16 |
+    |            piOilPriceDisplay v1.0              |
+    |                                                |
+    |    github.com/duivesteyn/piOilPriceDisplay     |
+    |                                                | internet: -> internet: OK (if internet works)		
+    |          internet:ok         Data:CME          | Data: -> Data:CME         (when the download reports status 200)
+    --------------------------------------------------
 
 MAIN DISPLAY - (Status @ $29.65/bbl)
---------------------------------------------------
-|                                     2020-05-16 | 
-|            ____  ___     ___   ___ 		     |
-|           (___ \/ _ \   / __) / __)		     |
-|            / __/\__  )_(  _ \(___ \		     |
-|           (____)(___/(_)\___/(____/            |
-|                                                |
---------------------------------------------------
+    --------------------------------------------------
+    |                                     2020-05-16 | 
+    |            ____  ___     ___   ___ 		     |
+    |           (___ \/ _ \   / __) / __)		     |
+    |            / __/\__  )_(  _ \(___ \		     |
+    |           (____)(___/(_)\___/(____/            |
+    |                                                |
+    --------------------------------------------------
