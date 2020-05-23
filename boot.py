@@ -67,7 +67,7 @@ draw.rectangle([(0, 0), (w, h)], fill=1, outline=1)
 
 # Draw lines
 draw.line((0, 12, w, 12))      # Horizontal top line
-draw.line((0, h-12, w, h-12))  # Horizontal top line
+draw.line((0, h-12, w, h-12))  # Horizontal bottom line
 
 # Load Font
 fontLg = ImageFont.truetype("elec.ttf", 16) 
@@ -80,7 +80,7 @@ if connectionTest == True:
 else:
     internetStr="Fail" 
 
-# Write text with weather values to the canvas
+# Write text
 datetime = time.strftime("%d/%m %H:%M")
 draw.text((135, 0), date + "   ", inky_display.WHITE, font=font)
 draw.text((5, 22), appname + "  ", inky_display.WHITE, font=fontLg)

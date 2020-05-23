@@ -23,7 +23,7 @@ https://github.com/duivesteyn/piOilPriceDisplay
 - autologin on boot to CLI.
 - renamed to piOilPriceDisplay (/etc/hosts)
 - user/pass pi:oilpricedisplay
-- apt-get updade && upgrade
+- apt-get update && upgrade
 - installed neofetch
 - switched to python3 alias python='/usr/bin/python3'  and alias pip=pip3
 - curl https://get.pimoroni.com/inky | bash
@@ -49,8 +49,8 @@ getPrice.py
 1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
 3. crontab -e
 4. add the following lines:
-*/30 * * * * python /home/pi/piOilPriceDisplay/boot.py
-@reboot python /home/pi/piOilPriceDisplay/updateDisplay.py
+*/30 * * * * python /home/pi/piOilPriceDisplay/updateDisplay.py
+@reboot python /home/pi/piOilPriceDisplay/boot.py
 
 
 ## User Interface

@@ -64,10 +64,8 @@ def getPrice (commodity):
     # "percentageChange":"+1.63%"
     # "escapedQuoteCode":"CLM0"
 
-
     #Settings
     oilString = "CL"
-    
     if(commodity == "oil") : URLprefix = oilString
     
     #Get Date
@@ -86,13 +84,11 @@ def getPrice (commodity):
 
 
     #Build URL for CME Exchange
-    #--------------------------
     #https://www.cmegroup.com/CmeWS/mvc/Quotes/FutureContracts/XNYM/G?quoteCodes=CL + MONTHCHAR + FINAL DIGIT OF YEAR
-    
     completeURL = futuresURL + URLprefix + URLmonth + URLyear
     
+    #Call URL
     print('Calling URL: ' + completeURL)
-
     r = requests.get(completeURL)
     exchangeOutput = json.loads(r.content)
 
@@ -103,11 +99,6 @@ def getPrice (commodity):
     	#Delve into the  JSON
     	items = exchangeOutput['quotes']
     	data = items[0]
-    	print(' last: ' + data['last'])
-    	print(' high: ' + data['high'])
-    	print(' low: ' + data['low'])
-    	print(' percentageChange: ' + data['percentageChange'])
-    	print(' volume: ' + data['volume'])
-    	print(' updated: ' + data['updated'])
-    	print('\n')
     	return data
+    else:
+        return None
