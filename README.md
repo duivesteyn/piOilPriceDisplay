@@ -1,9 +1,14 @@
-# duivesteyn piOilPriceDisplay 2020 Design Notes
+# piOilPriceDisplay 2020 Design Notes
 ### Raspberry pi zero with epaper display that constantly presents the WTI oil price
 script runs periodically, updates screen and then closes
-designed to run on the half hour, every half hour -> */30 * * * * 
+
+designed to run on the half hour, every x minutes -> */x * * * * 
+
 https://github.com/duivesteyn/piOilPriceDisplay
+
 2020-05-21 v1.0
+
+bmd
 
 
 # BOM
@@ -18,6 +23,13 @@ https://github.com/duivesteyn/piOilPriceDisplay
 - /Volumes/boot/wpa_supplicant.conf file with WIFI Settings
 - create blank /Volumes/boot/ssh to enable ssh access
 
+## Access
+ssh pi@piOilPriceDisplay.local
+
+## Pre-requisites
+- python3
+- inkyphat library -> curl https://get.pimoroni.com/inky | bash
+
 ## Raspbian Setup
 - ssh passwordless login. 
 - autologin on boot to CLI.
@@ -25,15 +37,14 @@ https://github.com/duivesteyn/piOilPriceDisplay
 - user/pass pi:oilpricedisplay
 - apt-get update && upgrade
 - installed neofetch
-- switched to python3 alias python='/usr/bin/python3'  and alias pip=pip3
 - curl https://get.pimoroni.com/inky | bash
  
-## Access
-ssh pi@piOilPriceDisplay.local
-
-## Pre-requisites
-- python3
-- inkyphat library -> curl https://get.pimoroni.com/inky | bash
+## Installation
+1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
+3. crontab -e
+4. add the following lines:
+*/15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
+@reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
 
 ## Code Structure 
 boot.py
@@ -44,13 +55,6 @@ updateDisplay.py
 
 getPrice.py
     Script that gets price from data provider.
-
-## Installation
-1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
-3. crontab -e
-4. add the following lines:
-*/15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
-@reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
 
 ## User Interface
 No user accessible options, all setup done in python file.
@@ -69,6 +73,7 @@ LOADING SCREEN
     --------------------------------------------------
 
 MAIN DISPLAY - (Status @ $29.65/bbl)
+
     --------------------------------------------------
     |                                     2020-05-16 | 
     |            ____  ___     ___   ___ 		     |
