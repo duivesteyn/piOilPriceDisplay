@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # coding: utf-8
 
 # duivesteyn // Python // Oil Price Display
@@ -86,7 +86,7 @@ strL = 'L:' + str(newData['low'])  + " "
 draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
 draw.text((141,  1), datetime.today().strftime('%Y-%m-%d')     + "   ", inky_display.BLACK, font=font) 
 x=draw.textsize(datetime.today().strftime('%Y-%m-%d'), font)[0]-draw.textsize(datetime.today().strftime('%H:%M'), font)[0]
-draw.text((141+x+5, 10), datetime.today().strftime('%H:%M')+ "   ", inky_display.BLACK, font=font)          
+draw.text((141+x+4, 10), datetime.today().strftime('%H:%M')+ "   ", inky_display.BLACK, font=font)          
 draw.text(( 5, 30), strLast, inky_display.BLACK, font=fontExLg)                                                 #Price, #33.56
 draw.text((160, 40), strH   , inky_display.BLACK, font=font)                                                    #High, 34.00
 draw.text((160, 50), strL   , inky_display.BLACK, font=font)                                                    #Low,  30.72

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # coding: utf-8
 
 # duivesteyn // Python // Oil Price Display // getPriceFromProvider

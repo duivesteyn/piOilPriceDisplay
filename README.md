@@ -33,12 +33,12 @@ ssh pi@piOilPriceDisplay.local
 
 ## Pre-requisites
 - python3
-- curl https://get.pimoroni.com/inky | bash
+- inkyphat library -> curl https://get.pimoroni.com/inky | bash
 
 ## Code Structure 
 boot.py
- 	Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. Runs for 30 seconds then opens display.py
-
+ 	Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
+	
 updateDisplay.py 
     Script that displays price onto screen. (and updates on subsequent runs).
 
@@ -49,8 +49,8 @@ getPrice.py
 1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
 3. crontab -e
 4. add the following lines:
-*/30 * * * * python /home/pi/piOilPriceDisplay/updateDisplay.py
-@reboot python /home/pi/piOilPriceDisplay/boot.py
+*/15 * * * * python3 /home/pi/piOilPriceDisplay/updateDisplay.py
+@reboot python3 /home/pi/piOilPriceDisplay/boot.py
 
 
 ## User Interface

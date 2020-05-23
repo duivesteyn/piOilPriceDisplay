@@ -1,17 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # coding: utf-8
 
 # duivesteyn // Python // Oil Price Display
 # https://github.com/duivesteyn/piOilPriceDisplay
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
 #
-# 2020-05-16 v1.0
+# 2020-05-23 v1.0
 #
-#
-# LOGIN SCREEN - Optional, but useful when you power on this unit after a year of it sitting in the cupboard.
+# LOGIN SCREEN - Optional, but useful when you power on this unit after a year of it sitting in the cupboard. Only goes to price screen if internet is detected
 #
 #--------------------------------------------------
-#|                                     2020-05-16 |
+#|                                     2020-05-23 |
 #|            piOilPriceDisplay v1.0              |
 #|                                                |
 #|    github.com/duivesteyn/piOilPriceDisplay     |
@@ -93,3 +92,14 @@ draw.text((120, 95), "Provider:" + datasource + "   ", inky_display.WHITE, font=
 inky_display.set_border(colour)
 inky_display.set_image(img)
 inky_display.show()
+
+#Sleep Boot Screen
+print('Starting 5s sleep')
+time.sleep(5)
+ 
+#Run main price page if internet is connected
+if connectionTest == True:
+    print('loading updateDisplay page')
+    exec(open('updateDisplay.py').read())
+else:
+    print('No Internet detected, Staying on Boot Screen')
