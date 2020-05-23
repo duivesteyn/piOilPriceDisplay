@@ -1,5 +1,5 @@
 # piOilPriceDisplay 2020 Design Notes
-### Raspberry pi zero with epaper display that constantly presents the WTI oil price
+### Raspberry Pi Zero with epaper display that constantly presents the WTI oil price.
 script runs periodically, updates screen and then closes
 
 designed to run on the half hour, every x minutes -> */x * * * * 
@@ -40,24 +40,28 @@ ssh pi@piOilPriceDisplay.local
 - curl https://get.pimoroni.com/inky | bash
  
 ## Installation
-1. git clone https://github.com/duivesteyn/piOilPriceDisplay    -> this puts the project into ~/piOilPriceDisplay/
-3. crontab -e
-4. add the following lines:
-*/15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
-@reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
+1. Get the python files -> git clone https://github.com/duivesteyn/piOilPriceDisplay    
+	* This downloads the project files adds them to ~/piOilPriceDisplay
+2. Run the script by opening boot.py, or alternatively just open updateDisplay.py to skip the bootscreen
+3. Schedule the script to run periodically
+	* crontab -e
+	* add the following lines:
+		* */15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
+		* @reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
 
 ## Code Structure 
 boot.py
- 	Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
+> Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
 	
 updateDisplay.py 
-    Script that displays price onto screen. (and updates on subsequent runs).
+> Script that displays price onto screen. (and updates on subsequent runs).
 
 getPrice.py
-    Script that gets price from data provider.
+> Script that gets price from data provider.
 
 ## User Interface
-No user accessible options, all setup done in python file.
+There are no user accessible options, all the setup done in python file.
+
 - Loading Screen. 	Shown on Startup for 30 seconds. Visual intro to communicate what device does, link and internet connectivity
 - Main Display 		Main Display updated every 30 seconds
 
@@ -82,3 +86,5 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
     |           (____)(___/(_)\___/(____/            |
     |                                                |
     --------------------------------------------------
+
+*built by bmd, 2020*
