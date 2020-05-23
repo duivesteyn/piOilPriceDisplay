@@ -46,8 +46,8 @@ ssh pi@piOilPriceDisplay.local
 3. Schedule the script to run periodically
 	* crontab -e
 	* add the following lines:
-		* */15 * * * * cd /home/pi/piOilPriceDisplay/ && python3 updateDisplay.py
-		* @reboot cd /home/pi/piOilPriceDisplay/ && python3 boot.py
+		* */15 * * * * cd /home/pi/piOilPriceDisplay/ && python3.7 updateDisplay.py
+		* @reboot cd /home/pi/piOilPriceDisplay/ && python3.7 boot.py
 
 ## Code Structure 
 boot.py
