@@ -6,7 +6,7 @@ designed to run on the half hour, every x minutes -> */x * * * *
 
 https://github.com/duivesteyn/piOilPriceDisplay
 
-2020-05-21 v1.0
+2020-05-23 v1.0
 
 bmd
 
