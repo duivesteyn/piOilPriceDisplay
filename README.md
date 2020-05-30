@@ -2,7 +2,7 @@
 ### Raspberry Pi Zero with epaper display that constantly presents the WTI oil price.
 script runs periodically, updates screen and then closes
 
-designed to run on the half hour, every x minutes -> */x * * * * 
+designed to run on the half hour, every x minutes
 
 https://github.com/duivesteyn/piOilPriceDisplay
 
@@ -10,6 +10,7 @@ https://github.com/duivesteyn/piOilPriceDisplay
 
 bmd
 
+![Display Photo](README-OilPriceDisplay.jpg)
 
 # BOM
 - pi zero WIFI
@@ -38,6 +39,7 @@ ssh pi@piOilPriceDisplay.local
 - apt-get update && upgrade
 - installed neofetch
 - curl https://get.pimoroni.com/inky | bash
+- disabled Led in config.txt
  
 ## Installation
 1. Get the python files -> git clone https://github.com/duivesteyn/piOilPriceDisplay    
@@ -68,7 +70,7 @@ There are no user accessible options, all the setup done in python file.
 LOADING SCREEN
 
     --------------------------------------------------
-    |                                     2020-05-16 |
+    |                                     2020-05-23 |
     |            piOilPriceDisplay v1.0              |
     |                                                |
     |    github.com/duivesteyn/piOilPriceDisplay     |
@@ -79,7 +81,7 @@ LOADING SCREEN
 MAIN DISPLAY - (Status @ $29.65/bbl)
 
     --------------------------------------------------
-    |                                     2020-05-16 | 
+    |                                     2020-05-23 | 
     |            ____  ___     ___   ___             |
     |           (___ \/ _ \   / __) / __)            |
     |            / __/\__  )_(  _ \(___ \            |
