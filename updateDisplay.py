@@ -38,7 +38,6 @@
 #--------------------------------------------------
 import time
 from PIL import Image, ImageDraw, ImageFont
-from font_fredoka_one import FredokaOne
 from datetime import datetime
 from inky import InkyPHAT
 from getPrice import getPrice                                                                                   #local library from getPrice.py

@@ -23,7 +23,7 @@
 # https://www.cmegroup.com/trading/energy/crude-oil/light-sweet-crude_product_calendar_futures.html
 
 #usage: x = getPrice(oil)
-def getPrice (commodity):
+def getPrice (commodity,verbose=0): #default verbose=0
 
     import datetime
     import requests					#for http GET 
@@ -32,7 +32,7 @@ def getPrice (commodity):
     
     #Futures Data Source URL Base
     futuresURL = "https://www.cmegroup.com/CmeWS/mvc/Quotes/FutureContracts/XNYM/G?quoteCodes="
-
+    
     # Futures Month Codes
     # Ref https://www.cmegroup.com/month-codes.html
     # ---------------------------
@@ -73,6 +73,7 @@ def getPrice (commodity):
 
     #Contract expires generally around 20th of month, so if Day Of Month > 20, go to the next months contract! 
     dom = dt.day
+    monthRollover = 0
     if(dom > 19): monthRollover = 1
     
     #Date Slicing for correct month contract URL.
@@ -82,20 +83,19 @@ def getPrice (commodity):
     if(month > 11): month = month - 12				#adjust for december back to 0!
     URLmonth = str(futureMonths[month])				#want 1 month advance, but the array is -1, so its +1-1 = month
 
-
     #Build URL for CME Exchange
     #https://www.cmegroup.com/CmeWS/mvc/Quotes/FutureContracts/XNYM/G?quoteCodes=CL + MONTHCHAR + FINAL DIGIT OF YEAR
     completeURL = futuresURL + URLprefix + URLmonth + URLyear
     
     #Call URL
-    print('Calling URL: ' + completeURL)
+    if(verbose): print('Calling URL: ' + completeURL)
     r = requests.get(completeURL)
     exchangeOutput = json.loads(r.content)
 
     # if response = 200 then
     if r.status_code==200 : 
     	#pprint.pprint(exchangeOutput)
-    	print(' Data Lookup Succeeded:' + str(r.status_code))
+    	if(verbose): print(' Data Lookup Succeeded:' + str(r.status_code))
     	#Delve into the  JSON
     	items = exchangeOutput['quotes']
     	data = items[0]
