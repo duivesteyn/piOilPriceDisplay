@@ -56,10 +56,13 @@ boot.py
 > Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
 	
 updateDisplay.py 
-> Script that displays price onto screen. (and updates on subsequent runs).
+> Script that displays price onto epaper screen (and updates on subsequent runs).
 
 getPrice.py
 > Script that gets price from data provider.
+
+printPrice.py 
+> Optional code that gets Price and just displays it into the terminal.
 
 ## User Interface
 There are no user accessible options, all the setup done in python file.
