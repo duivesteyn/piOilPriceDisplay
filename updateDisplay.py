@@ -15,6 +15,7 @@
 
 #Changelog 
 #v1.0 - original release - get price and print in terminal
+#v1.1 - Updated Text Size, and rotated 180deg
 
 # Available Properties 
 # "last":"28.01",
@@ -45,7 +46,7 @@ import pprint
 
 #intro
 appname = 'piOilPriceDisplay'       
-version = '1.0'
+version = '1.1'
 print('----------------------------\n' + appname + ' ' + version + '\n----------------------------\n')
 print(appname + ": Loading Price Screen")
 
@@ -57,6 +58,7 @@ pprint.pprint(newData)
 colour = "black"
 inky_display = InkyPHAT(colour)
 inky_display.set_border(inky_display.BLACK)
+inky_display.set_rotation(180)                                                                                  #Screen Rotation
 
 # Create a new canvas to draw on
 w, h = 212, 104
@@ -72,7 +74,7 @@ draw.line((0, h-12, w, h-12), fill=1)                                           
 
 # Load Font
 fontExLg = ImageFont.truetype("elec.ttf", 40) 
-fontLg = ImageFont.truetype("elec.ttf", 16) 
+fontLg = ImageFont.truetype("elec.ttf", 18  ) 
 font = ImageFont.truetype("elec.ttf", 10) 
 
 # Load Strings
@@ -86,9 +88,9 @@ draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
 draw.text((141,  1), datetime.today().strftime('%Y-%m-%d')     + "   ", inky_display.BLACK, font=font) 
 x=draw.textsize(datetime.today().strftime('%Y-%m-%d'), font)[0]-draw.textsize(datetime.today().strftime('%H:%M'), font)[0]
 draw.text((141+x+4, 10), datetime.today().strftime('%H:%M')+ "   ", inky_display.BLACK, font=font)          
-draw.text(( 5, 30), strLast, inky_display.BLACK, font=fontExLg)                                                 #Price, #33.56
-draw.text((160, 40), strH   , inky_display.BLACK, font=font)                                                    #High, 34.00
-draw.text((160, 50), strL   , inky_display.BLACK, font=font)                                                    #Low,  30.72
+draw.text(( 5, 30) , strLast, inky_display.BLACK, font=fontExLg)                                                 #Price, #33.56
+draw.text((160, 40), strH  , inky_display.BLACK, font=font)                                                    #High, 34.00
+draw.text((160, 50), strL  , inky_display.BLACK, font=font)                                                    #Low,  30.72
 xDistanceToStartPercentageChange=1+draw.textsize(strLast, fontExLg)[0]-draw.textsize(strChange, fontLg)[0]-3    #Right Aligning %Change and Last Price
 draw.text((xDistanceToStartPercentageChange, 70), str(strChange) + " ", inky_display.BLACK, font=fontLg)        #Change, -5.31%. Right Aligned with the last price
 draw.text((1, 94), str(newData['quoteCode']) +" ", inky_display.BLACK, font=font)                               #Footer: CLX
