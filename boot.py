@@ -44,7 +44,7 @@ def is_connected():
     
 #strings
 appname = "piOilPriceDisplay"
-version = "1.0"
+version = "1.1"
 url = "github.com/duivesteyn"
 datasource= "CME"
 

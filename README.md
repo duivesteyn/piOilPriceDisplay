@@ -1,14 +1,12 @@
 # piOilPriceDisplay 2020 Design Notes
 ### Raspberry Pi Zero with epaper display that constantly presents the WTI oil price.
-script runs periodically, updates screen and then closes
-
-designed to run on the half hour, every x minutes
-
+script runs periodically, updates screen and then closes.
+designed to run on the half hour, every x minutes.
+bmd.
 https://github.com/duivesteyn/piOilPriceDisplay
 
-2020-05-23 v1.0
-
-bmd
+2020-05-23 v1.0 - Initial Release
+2020-09-04 v1.1 - Minor screen changes
 
 ![Display Photo](README-OilPriceDisplay.jpg)
 
@@ -17,19 +15,17 @@ bmd
 - pimoroni pi w case
 - inky phat epaper screen
 - sd card
-
-# PI Setup
-## Headless installation
-- SD Card Flashed with Raspberry Pi Imager.app
-- /Volumes/boot/wpa_supplicant.conf file with WIFI Settings
-- create blank /Volumes/boot/ssh to enable ssh access
-
-## Access
-ssh pi@piOilPriceDisplay.local
-
+ 
 ## Pre-requisites
 - python3
 - inkyphat library -> curl https://get.pimoroni.com/inky | bash
+
+# Setup
+## Headless installation
+- SD Card Flashed with [Raspberry Pi Imager.app](https://www.raspberrypi.org/blog/raspberry-pi-imager-imaging-utility/)
+- /Volumes/boot/wpa_supplicant.conf file with WIFI Settings
+- create blank file at location /Volumes/boot/ssh to enable ssh access
+- Powerup and let the pi connect to your Wifi network. Continue with raspbian setup below.
 
 ## Raspbian Setup
 - ssh passwordless login. 
@@ -40,6 +36,9 @@ ssh pi@piOilPriceDisplay.local
 - installed neofetch
 - curl https://get.pimoroni.com/inky | bash
 - disabled Led in config.txt
+
+## Access
+ssh pi@piOilPriceDisplay.local
  
 ## Installation
 1. Get the python files -> git clone https://github.com/duivesteyn/piOilPriceDisplay    

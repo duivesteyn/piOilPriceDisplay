@@ -58,7 +58,8 @@ pprint.pprint(newData)
 colour = "black"
 inky_display = InkyPHAT(colour)
 inky_display.set_border(inky_display.BLACK)
-inky_display.set_rotation(180)                                                                                  #Screen Rotation
+inky_display.v_flip = True                                                                            $
+inky_display.h_flip = True                                                                    
 
 # Create a new canvas to draw on
 w, h = 212, 104
