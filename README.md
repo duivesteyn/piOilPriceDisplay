@@ -94,7 +94,7 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
 
 
 # Updates
-## v1.1 Flipped 180 degrees
+## v1.1 Flipped 180 degree
 
 *built by bmd, 2020*
 
