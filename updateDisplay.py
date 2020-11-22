@@ -5,7 +5,8 @@
 # https://github.com/duivesteyn/piOilPriceDisplay
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
 #
-# 2020-05-23 v1.0
+# 2020-11-22 v1.2
+# 
 #
 # Prerequisites
 # python3, PIL, inkyphat
@@ -16,6 +17,7 @@
 #Changelog 
 #v1.0 - original release - get price and print in terminal
 #v1.1 - Updated Text Size, and rotated 180deg
+#v1.2 - API Changed from CME to yahoo finance
 
 # Available Properties 
 # "last":"28.01",
@@ -46,7 +48,7 @@ import pprint
 
 #intro
 appname = 'piOilPriceDisplay'       
-version = '1.1'
+version = '1.2'
 print('----------------------------\n' + appname + ' ' + version + '\n----------------------------\n')
 print(appname + ": Loading Price Screen")
 
@@ -79,10 +81,10 @@ fontLg = ImageFont.truetype("elec.ttf", 18  )
 font = ImageFont.truetype("elec.ttf", 10) 
 
 # Load Strings
-strLast = '$' +  str(newData['last'])
-strChange = str(newData['percentageChange'])
-strH = 'H:' + str(newData['high']) + " "
-strL = 'L:' + str(newData['low'])  + " "
+strLast = '$' +  str(newData['regularMarketPrice'])
+strChange = str(newData['regularMarketChangePercent'])
+strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
+strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
 
 # Write text                
 draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)

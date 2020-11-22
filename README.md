@@ -7,6 +7,7 @@ https://github.com/duivesteyn/piOilPriceDisplay
 
 2020-05-23 v1.0 - Initial Release
 2020-09-04 v1.1 - Minor screen changes
+2020-11-22 v1.2 - CME API Free access removed, so switched to Yahoo Finance
 
 ![Display Photo](README-OilPriceDisplay.jpg)
 
@@ -29,9 +30,11 @@ https://github.com/duivesteyn/piOilPriceDisplay
 
 ## Raspbian Setup
 - ssh passwordless login. 
-- autologin on boot to CLI.
-- renamed to piOilPriceDisplay (/etc/hosts)
-- user/pass pi:oilpricedisplay
+- raspi-config
+-- autologin on boot to CLI.
+-- renamed to piOilPriceDisplay (/etc/hosts)
+-- user/pass pi/oilpricedisplay
+-- set timezone
 - apt-get update && upgrade
 - installed neofetch
 - curl https://get.pimoroni.com/inky | bash

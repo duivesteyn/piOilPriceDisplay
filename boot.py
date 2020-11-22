@@ -5,7 +5,7 @@
 # https://github.com/duivesteyn/piOilPriceDisplay
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
 #
-# 2020-05-23 v1.0
+# 2020-11-22 v1.2
 #
 # LOGIN SCREEN - Optional, but useful when you power on this unit after a year of it sitting in the cupboard. Only goes to price screen if internet is detected
 #
@@ -44,7 +44,7 @@ def is_connected():
     
 #strings
 appname = "piOilPriceDisplay"
-version = "1.1"
+version = "1.2"
 url = "github.com/duivesteyn"
 datasource= "CME"
 
