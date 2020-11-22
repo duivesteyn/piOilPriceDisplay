@@ -53,7 +53,10 @@ ssh pi@piOilPriceDisplay.local
 		* */15 * * * * cd /home/pi/piOilPriceDisplay/ && python3.7 updateDisplay.py
 		* @reboot cd /home/pi/piOilPriceDisplay/ && python3.7 boot.py
 
-## Code Structure 
+## Installing Updates
+1. cd ~/piOilPriceDisplay && git pull
+
+# Code Structure 
 boot.py
 > Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
 	
@@ -66,7 +69,7 @@ getPrice.py
 printPrice.py 
 > Optional code that gets Price and just displays it into the terminal.
 
-## User Interface
+# User Interface
 There are no user accessible options, all the setup done in python file.
 
 - Loading Screen. 	Shown on Startup for 30 seconds. Visual intro to communicate what device does, link and internet connectivity

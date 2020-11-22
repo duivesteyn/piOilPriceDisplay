@@ -133,7 +133,8 @@ strLast = '$' +  str(newData['regularMarketPrice'])
 strChange = str(newData['regularMarketChangePercent'])
 strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
 strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
-strQuoteCode = str(newData['underlyingSymbol'])
+strQuoteCode = str(round(newData['underlyingSymbol'],2))
+if(newData['underlyingSymbol']>0) : strQuoteCode = "+" + strQuoteCode
 
 # Write text                
 draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
@@ -145,7 +146,7 @@ draw.text((160, 40), strH  , inky_display.BLACK, font=font)                     
 draw.text((160, 50), strL  , inky_display.BLACK, font=font)                                                     #Low,  30.72
 xDistanceToStartPercentageChange=1+draw.textsize(strLast, fontExLg)[0]-draw.textsize(strChange, fontLg)[0]-3    #Right Aligning %Change and Last Price
 draw.text((xDistanceToStartPercentageChange, 70), str(strChange) + " ", inky_display.BLACK, font=fontLg)        #Change, -5.31%. Right Aligned with the last price
-draw.text((1, 94), strQuoteCode +" ", inky_display.BLACK, font=font)                                            #Footer: CLX
+draw.text((1, 94), strQuoteCode +"% ", inky_display.BLACK, font=font)                                           #Footer: CLX
 
 # Write to Display
 inky_display.set_border(colour)
