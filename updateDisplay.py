@@ -133,7 +133,7 @@ strLast = '$' +  str(newData['regularMarketPrice'])
 strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
 strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
 strQuoteCode = newData['underlyingSymbol']
-strChange = round(newData['regularMarketChangePercent'],2)
+strChange = str(round(newData['regularMarketChangePercent'],2))
 
 if(strChange>0) : strChange = "+" + strChange
 
@@ -146,7 +146,7 @@ draw.text(( 5, 30) , strLast, inky_display.BLACK, font=fontExLg)                
 draw.text((160, 40), strH  , inky_display.BLACK, font=font)                                                     #High, 34.00
 draw.text((160, 50), strL  , inky_display.BLACK, font=font)                                                     #Low,  30.72
 xDistanceToStartPercentageChange=1+draw.textsize(strLast, fontExLg)[0]-draw.textsize(strChange, fontLg)[0]-3    #Right Aligning %Change and Last Price
-draw.text((xDistanceToStartPercentageChange, 70), str(strChange) + " ", inky_display.BLACK, font=fontLg)        #Change, -5.31%. Right Aligned with the last price
+draw.text((xDistanceToStartPercentageChange, 70), strChange + " ", inky_display.BLACK, font=fontLg)        #Change, -5.31%. Right Aligned with the last price
 draw.text((1, 94), strQuoteCode +"% ", inky_display.BLACK, font=font)                                           #Footer: CLX
 
 # Write to Display
