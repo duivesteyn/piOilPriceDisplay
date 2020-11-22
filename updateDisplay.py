@@ -133,9 +133,11 @@ strLast = '$' +  str(newData['regularMarketPrice'])
 strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
 strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
 strQuoteCode = newData['underlyingSymbol']
-strChange = str(round(newData['regularMarketChangePercent'],2))
+changeValue = newData['regularMarketChangePercent']
 
-if(strChange>0) : strChange = "+" + strChange
+#TxtModification
+strChange = str(round(changeValue,2))
+if(changeValue>0) : strChange = "+" + strChange
 
 # Write text                
 draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
