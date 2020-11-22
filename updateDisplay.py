@@ -130,14 +130,12 @@ font = ImageFont.truetype("elec.ttf", 10)
 
 # Load Strings
 strLast = '$' +  str(newData['regularMarketPrice'])
-strChange = str(newData['regularMarketChangePercent'])
 strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
 strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
-changePercent = newData['underlyingSymbol']
-changePercent = round(changePercent,2)
+strQuoteCode = newData['underlyingSymbol']
+strChange = round(newData['regularMarketChangePercent'],2)
 
-strQuoteCode = str(changePercent)
-if(changePercent>0) : strQuoteCode = "+" + strQuoteCode
+if(strChange>0) : strChange = "+" + strChange
 
 # Write text                
 draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
