@@ -129,9 +129,9 @@ fontLg = ImageFont.truetype("elec.ttf", 18  )
 font = ImageFont.truetype("elec.ttf", 10) 
 
 # Load Strings
-strLast = '$' +  str(newData['regularMarketPrice'])
-strH = 'H:' + str(newData['regularMarketDayHigh']) + " "
-strL = 'L:' + str(newData['regularMarketDayLow'])  + " "
+strLast = str("%.2f" % newData['regularMarketPrice'])                                                           #Convert float to 2 digit with "%.2f" % float
+strH    = str("%.2f" % newData['regularMarketDayHigh'])
+strL    = str("%.2f" % newData['regularMarketDayLow'])
 strQuoteCode = newData['underlyingSymbol']
 changeValue = newData['regularMarketChangePercent']
 
@@ -144,9 +144,9 @@ draw.text((  3,  3), 'OLJEPRISEN' +  "   ", inky_display.BLACK, font=fontLg)
 draw.text((141,  1), datetime.today().strftime('%Y-%m-%d')     + "   ", inky_display.BLACK, font=font) 
 x=draw.textsize(datetime.today().strftime('%Y-%m-%d'), font)[0]-draw.textsize(datetime.today().strftime('%H:%M'), font)[0]
 draw.text((141+x+4, 10), datetime.today().strftime('%H:%M')+ "   ", inky_display.BLACK, font=font)          
-draw.text(( 5, 30) , strLast, inky_display.BLACK, font=fontExLg)                                                #Price, #33.56
-draw.text((160, 40), strH  , inky_display.BLACK, font=font)                                                     #High, 34.00
-draw.text((160, 50), strL  , inky_display.BLACK, font=font)                                                     #Low,  30.72
+draw.text(( 5, 30) , '$' + strLast, inky_display.BLACK, font=fontExLg)                                          #Price, #33.56
+draw.text((160, 40), 'H' + strH + ' ' , inky_display.BLACK, font=font)                                          #High, 34.00
+draw.text((160, 50), 'L' + strL + ' ' , inky_display.BLACK, font=font)                                          #Low,  30.72
 xDistanceToStartPercentageChange=1+draw.textsize(strLast, fontExLg)[0]-draw.textsize(strChange, fontLg)[0]-3    #Right Aligning %Change and Last Price
 draw.text((xDistanceToStartPercentageChange, 70), strChange + "% ", inky_display.BLACK, font=fontLg)            #Change, -5.31%. Right Aligned with the last price
 draw.text((1, 94), strQuoteCode +" ", inky_display.BLACK, font=font)                                            #Footer: CLX
