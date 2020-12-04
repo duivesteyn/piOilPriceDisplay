@@ -136,7 +136,7 @@ strQuoteCode = newData['underlyingSymbol']
 changeValue = newData['regularMarketChangePercent']
 
 #TxtModification
-strChange = str(round(changeValue,2))
+strChange = str("%.2f" % changeValue)
 if(changeValue>0) : strChange = "+" + strChange
 
 # Write text                

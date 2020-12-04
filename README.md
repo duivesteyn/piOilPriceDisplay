@@ -98,9 +98,6 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
     --------------------------------------------------
 
 
-# Updates
-## v1.1 Flipped 180 degree
-## v1.2 Moved from CME API to y! API
 
 *built by bmd, 2020*
 
