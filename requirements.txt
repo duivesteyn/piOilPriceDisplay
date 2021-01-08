@@ -1,0 +1,5 @@
+inky
+PIL 
+font_fredoka_one
+configparser
+yahoo_fin

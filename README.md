@@ -1,13 +1,12 @@
-# piOilPriceDisplay 2020 Design Notes
+# piOilPriceDisplay Design Notes
 ### Raspberry Pi Zero with epaper display that constantly presents the WTI oil price.
-script runs periodically, updates screen and then closes.
-designed to run on the half hour, every x minutes.
-bmd.
+
+script runs periodically to get the current oil price, updates screen with price data and then closes.
+designed to run every x minutes via a cron job.
+
 https://github.com/duivesteyn/piOilPriceDisplay
 
-2020-05-23 v1.0 - Initial Release
-2020-09-04 v1.1 - Minor screen changes
-2020-11-22 v1.2 - CME API Free access removed, so switched to Yahoo Finance
+
 
 ![Display Photo](README-OilPriceDisplay.jpg)
 
@@ -63,11 +62,12 @@ boot.py
 updateDisplay.py 
 > Script that displays price onto epaper screen (and updates on subsequent runs).
 
-getPrice.py
-> Script that gets price from data provider.
+piOilPriceDisplay.py
+> Main Script that sends output data.
+> On call it also Prints the Oil Price into the terminal.
 
-printPrice.py 
-> Optional code that gets Price and just displays it into the terminal.
+stock_info.py
+> Data collection script, performs scrape of yahoo finance page with pandas.
 
 # User Interface
 There are no user accessible options, all the setup done in python file.
@@ -79,11 +79,11 @@ LOADING SCREEN
 
     --------------------------------------------------
     |                                     2020-05-23 |
-    |            piOilPriceDisplay v1.0              |
+    |            piOilPriceDisplay v1.x              |
     |                                                |
     |    github.com/duivesteyn/piOilPriceDisplay     |
     |                                                | internet: -> internet: OK (if internet works)		
-    |          internet:ok         Data:CME          | Data: -> Data:CME         (when the download reports status 200)
+    |          internet:ok         Data:Provider     | Data: -> Data:CME         (when the download reports status 200)
     --------------------------------------------------
 
 MAIN DISPLAY - (Status @ $29.65/bbl)
@@ -97,7 +97,12 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
     |                                                |
     --------------------------------------------------
 
+# Version History
 
+* 2020-05-23 v1.0 - Initial Release
+* 2020-09-04 v1.1 - Minor screen changes
+* 2020-11-22 v1.2 - CME API Free access removed, so switched to Yahoo Finance via Rapid API
+* 2021-01-08 v1.3 - Switched to integrated Yahoo Finance API for better longevity.
 
-*built by bmd, 2020*
+*built by bmd*
 

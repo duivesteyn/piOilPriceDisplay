@@ -11,7 +11,7 @@
 #
 #--------------------------------------------------
 #|                                     2020-05-23 |
-#|            piOilPriceDisplay v1.0              |
+#|            piOilPriceDisplay v1.X              |
 #|                                                |
 #|    github.com/duivesteyn/piOilPriceDisplay     |
 #|                                                | internet: -> internet: OK (if internet works)		
@@ -44,9 +44,9 @@ def is_connected():
     
 #strings
 appname = "piOilPriceDisplay"
-version = "1.2"
+version = "1.3"
 url = "github.com/duivesteyn"
-datasource= "CME"
+datasource= "Y!"
 
 PATH = os.path.dirname(__file__) # Get the current path
 print(appname + ": Loading Boot Screen")
@@ -71,8 +71,8 @@ draw.line((0, 12, w, 12))      # Horizontal top line
 draw.line((0, h-12, w, h-12))  # Horizontal bottom line
 
 # Load Font
-fontLg = ImageFont.truetype("elec.ttf", 16) 
-font = ImageFont.truetype("elec.ttf", 10) 
+fontLg = ImageFont.truetype("_resources/elec.ttf", 16) 
+font = ImageFont.truetype("_resources/elec.ttf", 10) 
 
 #Internet Check
 connectionTest = is_connected()
