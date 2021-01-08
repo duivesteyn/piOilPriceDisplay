@@ -45,6 +45,7 @@ ssh pi@piOilPriceDisplay.local
 ## Installation
 1. Get the python files -> git clone https://github.com/duivesteyn/piOilPriceDisplay    
 	* This downloads the project files adds them to ~/piOilPriceDisplay
+2. Install the requirements -> pip3 install -r requirements.txt 
 2. Run the script by opening boot.py, or alternatively just open updateDisplay.py to skip the bootscreen
 3. Schedule the script to run periodically
 	* crontab -e
