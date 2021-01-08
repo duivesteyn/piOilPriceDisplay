@@ -1,4 +1,4 @@
 inky
 PIL 
 font_fredoka_one
-pandas
+requests_html

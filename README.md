@@ -40,23 +40,28 @@ https://github.com/duivesteyn/piOilPriceDisplay
 - disabled Led in config.txt
 
 ## Access
+
 ssh pi@piOilPriceDisplay.local
  
 ## Installation
+
 1. Get the python files -> git clone https://github.com/duivesteyn/piOilPriceDisplay    
 	* This downloads the project files adds them to ~/piOilPriceDisplay
 2. Install the requirements -> pip3 install -r requirements.txt 
-2. Run the script by opening boot.py, or alternatively just open updateDisplay.py to skip the bootscreen
-3. Schedule the script to run periodically
+3. pip3 install --upgrade requests
+4. Run the script by opening boot.py, or alternatively just open updateDisplay.py to skip the bootscreen
+5. Schedule the script to run periodically
 	* crontab -e
 	* add the following lines:
 		* */15 * * * * cd /home/pi/piOilPriceDisplay/ && python3.7 updateDisplay.py
 		* @reboot cd /home/pi/piOilPriceDisplay/ && python3.7 boot.py
 
 ## Installing Updates
+
 1. cd ~/piOilPriceDisplay && git pull
 
 # Code Structure 
+
 boot.py
 > Script that displays the Loading Screen, demonstrates internet connection and cme data pull OK. R
 	
@@ -71,6 +76,7 @@ stock_info.py
 > Data collection script, performs scrape of yahoo finance page with pandas.
 
 # User Interface
+
 There are no user accessible options, all the setup done in python file.
 
 - Loading Screen. 	Shown on Startup for 30 seconds. Visual intro to communicate what device does, link and internet connectivity
@@ -98,12 +104,18 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
     |                                                |
     --------------------------------------------------
 
+# Notes
+
+* Numpy and Pandas are not in the requirements.txt file. pip install pandas isn't the recommended route on linux systems. 
+** sudo apt-get install python3-pandas 
+* See https://numpy.org/devdocs/user/troubleshooting-importerror.html
+
 # Version History
 
 * 2020-05-23 v1.0 - Initial Release
 * 2020-09-04 v1.1 - Minor screen changes
-* 2020-11-22 v1.2 - CME API Free access removed, so switched to Yahoo Finance via Rapid API
-* 2021-01-08 v1.3 - Switched to integrated Yahoo Finance API for better longevity.
+* 2020-11-22 v1.3 - CME API Free access removed, so switched to Yahoo Finance via Rapid API
+* 2021-01-08 v1.4 - Switched to integrated Yahoo Finance API for better longevity.
 
 *built by bmd*
 

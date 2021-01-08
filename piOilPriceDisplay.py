@@ -74,8 +74,8 @@ def getPrice(verbose=0): #default verbose=0
         #Seperate High and Low from Yahoos "Day's Range" into the Market Data Dictionary
         if marketData[ "Day's Range"]:
             txtStr=marketData[ "Day's Range"].split('-')
-            marketData['Low']= txtStr[0].strip()
-            marketData['High']= txtStr[1].strip()
+            marketData['Low']= float(txtStr[0].strip())
+            marketData['High']= float(txtStr[1].strip())
     
             return marketData
     
