@@ -6,15 +6,12 @@
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
 # MAIN CLASS, which prints Price to Terminal and sends cleaned data to screen updating classes
 #
-# 2021-01-09 v1.0
-#
 # Prerequisites
-# python3
+# python3, bmdOilPriceFetch
 
 import sys
 import pprint
-
-import stock_info
+import bmdOilPriceFetch
 
 #---------------------------------------------------------------------------
 # printPrice
@@ -22,10 +19,9 @@ import stock_info
 # usage: printPrice()
 #---------------------------------------------------------------------------
 def printPrice():
-   
-    marketData =  getPrice()
-    outputString = 'The price of WTI is $' + str("%.2f" % marketData['Quote Price'])
 
+    data = bmdOilPriceFetch.bmdPriceFetch()
+    outputString = 'The price of WTI is $' + str("%.2f" % data['regularMarketPrice'])
     print(outputString)
     
     return outputString
@@ -59,28 +55,19 @@ def getPrice(verbose=0): #default verbose=0
 
     ticker='CL=F' #WTI Front Month from CME/YahooFinance
     
-    marketData = stock_info.get_quote_table(ticker)
-    
+    marketData = bmdOilPriceFetch.bmdPriceFetch(ticker)
+
     if marketData:
         
         #Add Underlying Symbol into Data
         marketData['underlyingSymbol'] = ticker
         
         #Bring in Change amount (without leading + sign or % sign) 
-        #in v1.3 this is possible from comparing the LAST price and the current price.
-        marketData['regularMarketChange'] = changeAmount=(marketData['Quote Price'] - marketData['Last Price'])
-        marketData['regularMarketChangePercent'] = marketData['regularMarketChange']/marketData['Last Price']*100
+        #in v1.5 this is possible from comparing the lastClose and the current price.
+        marketData['regularMarketChange'] =marketData['regularMarketPrice'] - marketData['lastClose']
+        marketData['regularMarketChangePercent'] = marketData['regularMarketChange']/marketData['lastClose']*100
+        
+        return marketData
     
-        #Seperate High and Low from Yahoos "Day's Range" into the Market Data Dictionary
-        if marketData[ "Day's Range"]:
-            txtStr=marketData[ "Day's Range"].split('-')
-            marketData['Low']= float(txtStr[0].strip())
-            marketData['High']= float(txtStr[1].strip())
-    
-            return marketData
-    
-
 if __name__ == "__main__":
     printPrice()
-    
-    

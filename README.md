@@ -7,7 +7,6 @@ designed to run every x minutes via a cron job.
 https://github.com/duivesteyn/piOilPriceDisplay
 
 
-
 ![Display Photo](README-OilPriceDisplay.jpg)
 
 # BOM
@@ -112,10 +111,10 @@ MAIN DISPLAY - (Status @ $29.65/bbl)
 
 # Version History
 
-* 2020-05-23 v1.0 - Initial Release
-* 2020-09-04 v1.1 - Minor screen changes
-* 2020-11-22 v1.3 - CME API Free access removed, so switched to Yahoo Finance via Rapid API
+* 2021-02-06 v1.5 - Switched to library bmdOilPriceFetch https://pypi.org/project/bmdOilPriceFetch/ 
 * 2021-01-08 v1.4 - Switched to integrated Yahoo Finance API for better longevity.
+* 2020-11-22 v1.3 - CME API Free access removed, so switched to Yahoo Finance via Rapid API
+* 2020-09-04 v1.1 - Minor screen changes
+* 2020-05-23 v1.0 - Initial Release
 
 *built by bmd*
-

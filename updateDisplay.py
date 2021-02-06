@@ -4,10 +4,7 @@
 # duivesteyn // Python // Oil Price Display
 # https://github.com/duivesteyn/piOilPriceDisplay
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
-#
-#  v1.2
 # 
-#
 # Prerequisites
 # python3, PIL, inkyphat
 
@@ -24,12 +21,6 @@
 #|                                                |
 #--------------------------------------------------
 
-#Changelog 
-#v1.0 2020-05-23 - original release - get price and print in terminal
-#v1.1 2020-09-04 - Updated Text Size, and rotated 180deg
-#v1.2 2020-11-22 - API Changed from CME to yahoo finance
-#v1.3 2021-01-08 - API Changed to use Yahoo Finance Directly
-
 import time
 import pprint
 from datetime import datetime
@@ -41,7 +32,7 @@ import piOilPriceDisplay
 
 #intro
 appname = 'piOilPriceDisplay'       
-version = '1.4'
+version = '1.5'
 print('----------------------------\n' + appname + ' ' + version + '\n----------------------------\n')
 print(appname + ": Loading Price Screen")
 
@@ -78,9 +69,9 @@ fontLg = ImageFont.truetype("_resources/elec.ttf", 18  )
 font = ImageFont.truetype("_resources/elec.ttf", 10) 
 
 # Load Strings
-strLast = str("%.2f" % newData['Quote Price'])                                                           #Convert float to 2 digit with "%.2f" % float
-strH    = str("%.2f" % newData['High'])
-strL    = str("%.2f" % newData['Low'])
+strLast = str("%.2f" % newData['regularMarketPrice'])                                                           #Convert float to 2 digit with "%.2f" % float
+strH    = str("%.2f" % newData['high'])
+strL    = str("%.2f" % newData['low'])
 strQuoteCode = newData['underlyingSymbol']
 changeValue = newData['regularMarketChangePercent']
 

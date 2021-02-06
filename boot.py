@@ -5,8 +5,6 @@
 # https://github.com/duivesteyn/piOilPriceDisplay
 # little pi zero with epaper display that constantly presents the WTI oil price (Month+1)
 #
-# 2020-11-22 v1.2
-#
 # LOGIN SCREEN - Optional, but useful when you power on this unit after a year of it sitting in the cupboard. Only goes to price screen if internet is detected
 #
 #--------------------------------------------------
@@ -27,7 +25,6 @@ import time
 import os
 from inky import InkyPHAT
 from PIL import Image, ImageDraw, ImageFont
-from font_fredoka_one import FredokaOne
 from datetime import datetime
 import socket
 
@@ -44,7 +41,7 @@ def is_connected():
     
 #strings
 appname = "piOilPriceDisplay"
-version = "1.4"
+version = "1.5"
 url = "github.com/duivesteyn"
 datasource= "Y!"
 
