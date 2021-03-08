@@ -1,4 +1,5 @@
 inky
-PIL 
+pillow 
 requests_html
 bmdOilPriceFetch
+configparser

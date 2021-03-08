@@ -1,0 +1,8 @@
+[Setup]
+
+#ScreenType - waveshare,inky,terminal - Selects the output screen. 
+ScreenType: inky
+
+[Stocks]
+Choice1Name=OLJEPRISEN
+Choice1Icon=oil-tower.png

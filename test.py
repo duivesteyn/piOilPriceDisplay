@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
-# Test for non pi device.
+# Simple test code to check it gets the data correctly.
 
-import time
 import pprint
-from datetime import datetime
+import configparser
+import boot
 
-import piOilPriceDisplay
-
-def performTest():
+def performTestOfDataCollection():
 
     #intro
     appname = 'piOilPriceDisplay'       
-    version = '1.5'
+    version = '1.6'
     print('----------------------------\n' + appname + ' ' + version + '\n----------------------------\n')
     print(appname + ": Loading Price Screen")
 
+    #Get Config Info from Settings.yaml file.
+    Config = configparser.ConfigParser()
+    Config.read("settings.yaml")
+
     #get Oil Price Data
-    newData = piOilPriceDisplay.getPrice()
+    newData = boot.getPrice()
 
     pprint.pprint(newData)
     print('------')
@@ -35,4 +37,4 @@ def performTest():
 
     return testResult
 
-performTest()
+performTestOfDataCollection()
