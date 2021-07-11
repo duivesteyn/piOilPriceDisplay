@@ -1,5 +1,5 @@
 inky
 pillow 
 requests_html
-bmdOilPriceFetch
+bmdOilPriceFetch>=0.5
 configparser
